@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Tebak Nama Batu</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+		<!--Masukkan css java-script python dan bahasa pemrograman lainnya di sini-->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+			
+			background-image: url('download.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tebak Nama Batu</h1>
+    <p>Kami telah memilih sebuah nama batu. <br>
+    Nama Batu-Batuan Yang Akan Di Tebak
+    <p>
+        Kuarsa, Obsidian, Koral, Basal, Batu pasir, Batu Kapur & Batu Dendrit
+    </p>
+        Selamat menebak tebak!</p>
+    <input type="text" id="guess" placeholder="Masukkan nama batu">
+    <button onclick="checkGuess()">Tebak</button>
+    <p id="message"></p>
+
+    <script>
+        alert("Selamat datang di Tebak Nama Batu Level Easy!");
+        alert("Nama batu yang terpilih dari 7 nama batu di Halaman awal akan di acak dan...");
+        alert("Selamat menebak!");
+        var batu = ['Kuarsa', 'Obsidian', 'Koral', 'Basal', 'Batu pasir', 'Batu Kapur', 'Batu Dendrit'];
+        var batuTerpilih = batu[Math.floor(Math.random() * batu.length)];
+
+        function checkGuess() {
+            var guess = document.getElementById('guess').value;
+            var message = '';
+
+            if (guess.toLowerCase() === batuTerpilih) {
+                message = 'Selamat! Anda berhasil menebak nama batu.';
+                batuTerpilih = batu[Math.floor(Math.random() * batu.length)];
+            } else {
+                message = 'Maaf, tebakan Anda salah. Coba lagi.';
+            }
+
+            document.getElementById('message').innerText = message;
+        }
+    </script>
+</body>
+</html>

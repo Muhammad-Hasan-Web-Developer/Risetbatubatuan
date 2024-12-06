@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/x-icon" href="Aku.jpg">
+	<!--Masukkan css java-script python dan bahasa pemrograman lainnya di sini-->
+    <link rel="stylesheet" href="style.css">
+    <style>
+body {
+	background-image: url('download.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Tebak Nama Batu</h1>
+        <p>Kami telah memilih sebuah nama batu.
+        Nama Batu-Batu Tadi adalah 
+        <p>
+            Kuarsa, Obsidian, Koral, Basal, Batu pasir, Batu Kapur & Batu Dendrit
+        </p>
+        Selamat menebak tebak!</p>
+        <input type="text" id="guess" placeholder="Masukkan nama batu">
+        <button onclick="checkGuess()">Tebak</button>
+        <p id="message"></p>
+        <p>Skor: <span id="score">0</span></p>
+        <p>Waktu: <span id="time">100</span> detik</p>
+    </div>
+
+    <script>
+        alert("Selamat datang di Game Tebak Nama Batu Level Hard!");
+        alert("Anda memiliki waktu 100 detik untuk menebak nama batu.");
+        alert("Selamat bermain!");
+        var batu = ['Kuarsa', 'Obsidian', 'Koral', 'Basal', 'Batu pasir', 'Batu Kapur', 'Batu Dendrit'];
+        var batuTerpilih = batu[Math.floor(Math.random() * batu.length)];
+        var score = 0;
+        var time = 100;
+
+        function checkGuess() {
+            var guess = document.getElementById('guess').value;
+            var message = '';
+
+            if (guess.toLowerCase() === batuTerpilih) {
+                message = 'Selamat! Anda berhasil menebak nama batu.';
+                score++;
+                document.getElementById('score').innerText = score;
+                batuTerpilih = batu[Math.floor(Math.random() * batu.length)];
+            } else {
+                message = 'Maaf, tebakan Anda salah. Coba lagi.';
+            }
+
+            document.getElementById('message').innerText = message;
+        }
+
+        setInterval(function() {
+            time--;
+            document.getElementById('time').innerText = time;
+
+            if (time <= 0) {
+                alert('Waktu habis! Skor akhir Anda adalah ' + score);
+                score = 0;
+                time = 100;
+                document.getElementById('score').innerText = score;
+                document.getElementById('time').innerText = time;
+                batuTerpilih = batu[Math.floor(Math.random() * batu.length)];
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>

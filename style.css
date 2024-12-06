@@ -1,0 +1,32 @@
+body {
+    background-image: url('bg.jpg');
+    color: white !important;
+}
+
+button {
+    background-image: url('bg.jpg');
+    color: white !important;
+}
+
+a {
+    text-decoration: none !important;
+    color: white !important;
+}
+
+#img {
+    width: 200px;
+}
+
+li {
+    margin-left: 50px;
+}
+
+form {
+    margin-left: 50px;
+    width: 600px;
+}
+
+div.my-alert-container {
+    margin-left: 50px;
+    width: 100px;
+}
